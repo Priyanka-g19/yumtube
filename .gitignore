@@ -5,3 +5,7 @@ venv/
 .venv/
 *.json
 __pycache__/
+*.ssh
+.ssh/
+priyanka_g19_ssh
+priyanka_g19_ssh.pub

@@ -14,7 +14,7 @@ def connect_to_db():
 # data = supabase.table('recipe').select('*').execute()
 # print(data)
 
-def store_recipe_in_db(recipe: Recipe, video_url: str, video_id: str):
+def store_recipe_in_db(recipe: Recipe, video_url: str, video_id: str,user_id: str):
     supabase: Client = connect_to_db()
     # Prepare recipe data for insertion
     recipe_data = {
@@ -23,8 +23,10 @@ def store_recipe_in_db(recipe: Recipe, video_url: str, video_id: str):
         "method_to_prepare": [{"step_number": step.step_number, "instructions": step.instructions} for step in recipe.method_to_prepare],
         "servings": recipe.servings,
         "video_url": video_url,
-        "video_id": video_id
+        "video_id": video_id,
+        "user_id": user_id
     }
     # Insert into your Supabase table
     response = supabase.table("recipe").insert(recipe_data).execute()
-    print(response)
+    return response
+

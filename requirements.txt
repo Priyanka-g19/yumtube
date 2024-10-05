@@ -1,2 +1,8 @@
 youtube-transcript-api
 supabase
+google-api-python-client
+groq
+youtube-transcript-api
+streamlit-url-fragment
+streamlit
+python-dotenv

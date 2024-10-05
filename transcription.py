@@ -95,22 +95,22 @@ def process_videos(video_urls, output_file):
             else:
                 print(f"Invalid URL: {url}")
 
-def csv_to_dataframe(csv_file):
-    print(pd.read_csv(csv_file))
+# def csv_to_dataframe(csv_file):
+#     print(pd.read_csv(csv_file))
 
 # Example usage
-video_urls = [
-    # "https://www.youtube.com/watch?v=7bZH9r8c0iE",
-    # "https://youtu.be/KhGDAzF1_rQ",
-    # "https://www.youtube.com/shorts/ZIRZ-XFe2F0",
-    # Add more URLs here
-    "https://www.youtube.com/watch?v=P4i9jKiJZTk"
-]
+# video_urls = [
+#     # "https://www.youtube.com/watch?v=7bZH9r8c0iE",
+#     # "https://youtu.be/KhGDAzF1_rQ",
+#     # "https://www.youtube.com/shorts/ZIRZ-XFe2F0",
+#     # Add more URLs here
+#     "https://www.youtube.com/watch?v=P4i9jKiJZTk"
+# ]
 # output_file = 'youtube_data.csv'
 
 # process_videos(video_urls, output_file)
 # video_id=extract_video_id("https://www.youtube.com/watch?v=P4i9jKiJZTk")
-print(get_transcript("P4i9jKiJZTk"))
+# print(get_transcript("P4i9jKiJZTk"))
 # Uncomment the following line if you want to display the CSV as a DataFrame
 # csv_to_dataframe(output_file)
 # print(f"Data has been appended to {output_file}")

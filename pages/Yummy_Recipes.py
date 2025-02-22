@@ -88,7 +88,7 @@ def display_recipe_card(recipe):
         if instruction.strip():
             formatted_recipe += f"{idx}. {instruction.strip()}\n"
     
-    with st.expander(f"📝 {recipe.get('recipe_title', '')}", key=f"expander_{recipe.get('id', '')}"):
+    with st.expander(f"📝 {recipe.get('recipe_title', '')} (ID: {recipe.get('id', '')})"):
         col1, col2 = st.columns(2)
         with col1:
             st.write("**Video Title:**", recipe.get('video_title', ''))

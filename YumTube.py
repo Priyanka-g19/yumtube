@@ -298,7 +298,7 @@ def main() -> None:
     
     # Translation language selection
     translation_options = [
-        "Do not translate", "Hindi", "Bengali", "Gujarati", "Kannada",
+        "English", "Hindi", "Bengali", "Gujarati", "Kannada",
         "Malayalam", "Marathi", "Odia", "Punjabi", "Tamil", "Telugu"
     ]
     st.session_state.selected_language = st.selectbox(
@@ -323,7 +323,7 @@ def main() -> None:
                 with st.spinner("Processing video and generating recipe..."):
                     try:
                         recipe_data = process_video(youtube_url)
-                        if st.session_state.selected_language != "Do not translate":
+                        if st.session_state.selected_language != "English":
                             language_codes = {
                                 "Hindi": "hi-IN",
                                 "Bengali": "bn-IN",

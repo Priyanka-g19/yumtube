@@ -6,3 +6,6 @@ groq
 streamlit
 python-dotenv
 requests
+supabase
+streamlit-feedback
+st-copy-to-clipboard

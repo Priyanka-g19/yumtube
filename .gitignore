@@ -8,3 +8,4 @@ __pycache__/
 *.ssh
 .ssh/
 .DS_Store
+.streamlit

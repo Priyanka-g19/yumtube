@@ -177,7 +177,7 @@ def main() -> None:
                 st.experimental_set_query_params(page="YumTube")
                 st.rerun()
         else:
-            st.write(f"Found {total_recipes} recipe{'s' if total_recipes != 1 else ''}")
+            st.write(f"Total {total_recipes} recipe{'s' if total_recipes != 1 else ''}")
             for recipe in recipes:
                 display_recipe_card(recipe)
             

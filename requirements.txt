@@ -1,6 +1,7 @@
 google-api-python-client
 pandas
-google-auth google-auth-oauthlib
+google-auth 
+google-auth-oauthlib
 youtube-transcript-api
 groq
 streamlit

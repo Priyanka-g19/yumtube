@@ -1,0 +1,11 @@
+google-api-python-client
+pandas
+google-auth google-auth-oauthlib
+youtube-transcript-api
+groq
+streamlit
+python-dotenv
+requests
+supabase
+streamlit-feedback
+st-copy-to-clipboard

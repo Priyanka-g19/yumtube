@@ -1,0 +1,11 @@
+.env
+venv/
+*.ipynb
+*.csv
+.venv/
+*.json
+__pycache__/
+*.ssh
+.ssh/
+.DS_Store
+.streamlit

@@ -174,7 +174,7 @@ def main() -> None:
         if not recipes:
             st.info("You haven't saved any recipes yet!")
             if st.button("Create your first recipe"):
-                st.query_params(page="YumTube")
+                st.query_params["page"]="YumTube"
                 st.rerun()
         else:
             st.write(f"Total {total_recipes} recipe{'s' if total_recipes != 1 else ''}")

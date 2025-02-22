@@ -85,7 +85,8 @@ def get_user_recipes(user_id, page_number, recipes_per_page, access_token, refre
         seen_videos = set()
 
         for recipe in recipes:
-            video_id = recipe.get('youtube_video_id', None)
+            youtube_url = recipe.get('youtube_url', None)
+            video_id = extract_video_id(youtube_url) if youtube_url else None
             if video_id:
                 if video_id in seen_videos:
                     st.warning(f"Recipe already saved for video: {recipe.get('video_title', 'Unknown')}")
@@ -94,6 +95,10 @@ def get_user_recipes(user_id, page_number, recipes_per_page, access_token, refre
             unique_recipes.append(recipe)
 
         return unique_recipes, total_recipes
+
+    except Exception as e:
+        st.error(f"Error fetching recipes: {str(e)}")
+        return [], 0
 
     except Exception as e:
         st.error(f"Error fetching recipes: {str(e)}")

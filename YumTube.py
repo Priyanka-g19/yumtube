@@ -265,11 +265,11 @@ def main() -> None:
         st.markdown(
             """
             <div style="text-align: center;">
-                <a href="https://linkedin.com/in/firstprofile" target="_blank">
+                <a href="https://www.linkedin.com/in/sagar-pandey-821927171" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
                          style="height: 30px; margin: 5px;">
                 </a>
-                <a href="https://linkedin.com/in/secondprofile" target="_blank">
+                <a href="https://linkedin.com/in/priyanka-gupta-b193a1212" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
                          style="height: 30px; margin: 5px;">
                 </a>
@@ -283,11 +283,11 @@ def main() -> None:
         st.markdown(
             """
             <div style="text-align: center;">
-                <a href="https://github.com/your-repo-url" target="_blank">
+                <a href="https://github.com/Priyanka-g19/yumtube" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
                          style="height: 30px; margin: 5px;">
                 </a>
-                <a href="https://medium.com/@your-profile" target="_blank">
+                <a href="https://medium.com/@priyanka.dataian/yumtube-your-ai-powered-recipe-assistant-from-youtube-videos-a07966886bb5" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111505.png" 
                         style="height: 30px; margin: 5px;">
                 </a>

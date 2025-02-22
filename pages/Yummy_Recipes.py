@@ -7,6 +7,7 @@ from datetime import datetime
 import dateutil.parser
 from st_copy_to_clipboard import st_copy_to_clipboard
 from youtube import extract_video_id
+import uuid
 from common import init_session_state, sign_out  # shared session helpers
 
 # Inject custom CSS for styling.

@@ -173,7 +173,7 @@ def main() -> None:
         
         if not recipes:
             st.info("You haven't saved any recipes yet!")
-            if st.button("Create your first recipe"):
+            if st.button("Create your first recipe", key="create_recipe_btn"):
                 st.switch_page("YumTube.py")
                 # st.rerun()
         else:

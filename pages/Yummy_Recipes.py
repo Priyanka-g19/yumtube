@@ -67,45 +67,6 @@ def get_user_recipes(user_id, page_number, recipes_per_page, access_token, refre
         st.error(f"Error fetching recipes: {str(e)}")
         return [], 0
 
-# def get_user_recipes(user_id, page_number, recipes_per_page, access_token, refresh_token):
-#     try:
-#         supabase.auth.set_session(access_token, refresh_token)
-#         start = (page_number - 1) * recipes_per_page
-#         end = start + recipes_per_page - 1
-#         response = supabase.table('recipes') \
-#             .select('*', count='exact') \
-#             .eq('user_id', user_id) \
-#             .order('created_at', desc=True) \
-#             .range(start, end) \
-#             .execute()
-
-#         total_recipes = response.count if response.count is not None else 0
-#         recipes = response.data if response.data else []
-
-#         # Track unique YouTube video IDs to avoid duplicates
-#         unique_recipes = []
-#         seen_videos = set()
-
-#         for recipe in recipes:
-#             youtube_url = recipe.get('youtube_url', None)
-#             video_id = extract_video_id(youtube_url) if youtube_url else None
-#             if video_id:
-#                 if video_id in seen_videos:
-#                     st.warning(f"Recipe already saved for video: {recipe.get('video_title', 'Unknown')}")
-#                     continue  # Skip duplicate recipes
-#                 seen_videos.add(video_id)
-#             unique_recipes.append(recipe)
-
-#         return unique_recipes, total_recipes
-
-#     except Exception as e:
-#         st.error(f"Error fetching recipes: {str(e)}")
-#         return [], 0
-
-#     except Exception as e:
-#         st.error(f"Error fetching recipes: {str(e)}")
-#         return [], 0
-
 
 def parse_datetime(datetime_str):
     try:
@@ -130,12 +91,8 @@ def display_recipe_card(recipe):
         if instruction.strip():
             formatted_recipe += f"{idx}. {instruction.strip()}\n"
 
-
-     # Generate a unique invisible character sequence
-    unique_id = str(uuid.uuid4())[:8]  # Shorten the UUID
-    invisible_suffix = f"\u200B{unique_id}"  # Zero-width space + unique ID
     
-    expander_label = f"📝 {recipe.get('recipe_title', '')}{invisible_suffix}"
+    expander_label = f"📝 {recipe.get('recipe_title', '')}"
     
     with st.expander(expander_label):
         col1, col2 = st.columns(2)

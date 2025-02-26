@@ -2,16 +2,15 @@
 ## Technical Documentation
 
 ## 🚀 Executive Summary
-YumTube transforms YouTube cooking video subtitles into structured, easy-to-follow recipes using AI. By leveraging advanced language models and intelligent transcript processing, the platform helps cooking enthusiasts convert video subtitles into practical text recipes that can be saved, translated, and shared across multiple Indian languages.
+YumTube transforms YouTube cooking videos with existing subtitles into structured, easy-to-follow recipes using AI. The application accesses available video captions, processes them through an LLM, and generates well-formatted recipes that can be translated into multiple Indian languages.
 
 ## 🏗️ Core Architecture
-**Note:** YumTube processes YouTube video subtitles/transcripts only - it does not perform video-to-text conversion or analyze video content directly.
 
 ### 🔄 System Overview
 YumTube operates through a seamless integration of AI processing, data storage, and user interface components:
 
 ```
-[YouTube Video] → [Transcript Extraction] → [LLM Processing] → [Recipe Generation] → [User Interface]
+[YouTube Video Subtitles] → [Transcript Extraction] → [LLM Processing] → [Recipe Generation] → [User Interface]
                                                                         ↓
                             [User Authentication] ← [Database Storage] ← [Recipe Translation]
 ```
@@ -20,37 +19,31 @@ YumTube operates through a seamless integration of AI processing, data storage, 
 
 #### 🖥️ Frontend Layer
 - **Platform**: Streamlit
-- **Function**: Provides an intuitive web interface for URL input, recipe display, language selection, and user account management
-- **Design Philosophy**: Minimalist interface with focus on recipe content and readability
+- **Function**: User interface for URL input, recipe display, and language selection
 
 #### 🔍 Data Processing Layer
 - **Core Engine**: Llama 3.3 70B Versatile (via Groq)
-- **Video Content Analysis**: Intelligent processing of cooking video transcripts
-- **Recipe Structuring**: Automatic organization of ingredients, steps, and cooking parameters
+- **Input**: Pre-existing YouTube video subtitles
+- **Output**: Structured recipe format
 
 #### 💾 Storage Layer
 - **Technology**: Supabase (PostgreSQL-based)
-- **Data Models**: User profiles, saved recipes, feedback records
-- **Authentication**: Google OAuth integration
+- **Data Models**: User profiles, saved recipes, feedback
 
 #### 🌐 Translation Layer
 - **Service**: Sarvam API
 - **Supported Languages**: Multiple Indian languages including Hindi, Tamil, Telugu, Kannada, Malayalam, Gujarati, Marathi, Bengali, Punjabi, Oriya, and Assamese
-- **Implementation**: Context-aware translation preserving recipe structure
 
 ## ✨ Feature Suite
 
 ### 1. 🧠 Intelligent Recipe Generation
-- **Video Transcript Processing**
-  - Automatically extracts subtitles from YouTube cooking videos using `youtube-transcript-api`
-  - Handles multilingual transcripts with translation to English when needed
-  - Processes transcript content to identify recipe components
-  
-- **AI-Powered Structure Creation**
-  - Converts unstructured video dialogue into organized recipe format
-  - Identifies and categorizes ingredients with quantities
-  - Sequences preparation and cooking steps in logical order
-  - Extracts additional details like cooking time, difficulty, and serving size
+- Accesses existing subtitles from YouTube cooking videos using `youtube-transcript-api`
+- Processes caption content through Llama 3.3 70B Versatile via Groq
+- Structures unorganized video dialogue into formatted recipe components:
+  - Recipe title and description
+  - Ingredients with measurements
+  - Step-by-step cooking instructions
+  - Cooking time and serving information
 
 ### 2. 🗣️ Multilingual Support
 - Delivers recipes in multiple Indian languages including Hindi, Tamil, Telugu, Kannada, Malayalam, Gujarati, Marathi, Bengali, Punjabi, Oriya, and Assamese
@@ -112,26 +105,24 @@ Sarvam excels specifically at Indian language translations, providing more cultu
 ## 👨‍🍳 User Experience Flow
 
 1. **Language Selection** 🌐
-   - User chooses preferred language from multiple supported Indian languages
-   - Interface adapts to selected language
+   - User selects preferred language from supported Indian languages
 
 2. **Video Selection** 🎬
-   - User pastes a YouTube cooking video URL
-   - System validates video accessibility and subtitle availability
+   - User inputs YouTube cooking video URL
+   - System validates subtitle/CC availability
 
 3. **Recipe Generation** ✨
    - System extracts video transcript
-   - LLM processes transcript into structured recipe
-   - Recipe displayed with clear sections in selected language
+   - LLM processes transcript into structured recipe format
+   - Recipe displayed in selected language
 
 4. **Recipe Management** 📚
-   - User can copy recipe to clipboard
-   - Authenticated users can save to personal library
+   - Copy functionality for sharing
+   - Save option for authenticated users
    - Saved recipes accessible via "Yummy Recipes" section
 
-5. **Feedback Collection** 📝
-   - User provides application feedback
-   - System stores feedback in Supabase
+5. **Feedback** 📝
+   - Simple feedback form for user comments
 
 ## 🚀 Deployment Strategy
 
@@ -148,34 +139,17 @@ YumTube is deployed on Streamlit Cloud, providing:
 - User authentication handled through established OAuth providers
 - No storage of sensitive YouTube account information
 
-## ⚠️ Limitations and Boundaries
+## ⚠️ Technical Limitations
 
-### 🚧 Current Constraints
-- Depends on availability of video subtitles/transcripts
-- Translation quality may vary for complex culinary terms
-- Recipe extraction quality depends on video narration clarity
-
-### 🧪 Edge Cases
-- Very long cooking videos may require special handling
-- Regional cooking techniques may not always be recognized correctly
-- Videos with multiple recipes require manual separation
+- Only works with videos that already have subtitles/captions
+- No capability to generate captions for videos without them
+- Translation accuracy varies with culinary terminology complexity
 
 ## 🔮 Future Roadmap
 
-### 🔜 Short-term Enhancements
-- 🖼️ Recipe image generation based on ingredients list
-- 🥗 Nutritional information calculation
-- 🛒 Shopping list export functionality
-
-### 🌱 Mid-term Vision
-- ⏱️ Video timestamp linking to specific recipe steps
-- 👍 Personalized recipe recommendations
-- 🥜 Dietary restriction and allergen filtering
-
-### 🌟 Long-term Expansion
-- 👨‍👩‍👧‍👦 Community recipe sharing platform
-- 🛍️ Integration with grocery delivery services
-- 🎤 Voice-controlled recipe navigation
+### 🔜 Planned Enhancements
+- 🤖 RAG (Retrieval-Augmented Generation) implementation for chat with recipes functionality
+- 🎤 Audio-to-text conversion via ASR when video transcripts are unavailable
 
 ## 🎯 Conclusion
 YumTube represents a practical application of AI to solve everyday cooking challenges. By bridging video content with structured recipes and adding multilingual support, it creates value for cooking enthusiasts across language barriers. The architecture prioritizes user experience while leveraging cutting-edge language models to deliver high-quality recipe extraction.

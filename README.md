@@ -103,26 +103,55 @@ Supabase provides a comprehensive backend solution that combines authentication,
 Sarvam excels specifically at Indian language translations, providing more culturally accurate translations of culinary terms compared to general-purpose translation APIs. It supports a comprehensive range of Indian languages, making recipes accessible to a diverse linguistic audience across India.
 
 ## 👨‍🍳 User Experience Flow
-
-1. **Language Selection** 🌐
-   - User selects preferred language from supported Indian languages
-
-2. **Video Selection** 🎬
-   - User inputs YouTube cooking video URL
-   - System validates subtitle/CC availability
-
-3. **Recipe Generation** ✨
-   - System extracts video transcript
-   - LLM processes transcript into structured recipe format
-   - Recipe displayed in selected language
-
-4. **Recipe Management** 📚
-   - Copy functionality for sharing
-   - Save option for authenticated users
-   - Saved recipes accessible via "Yummy Recipes" section
-
-5. **Feedback** 📝
-   - Simple feedback form for user comments
+flowchart TD
+    Start([Start]) --> A[User Visits YumTube]
+    A --> B[Select Language]
+    B --> C[Input YouTube Cooking Video URL]
+    
+    C --> D{Has Subtitles?}
+    D -->|Yes| E[Fetch Existing Subtitles]
+    D -->|No| F[Display Error Message]
+    F --> C
+    
+    E --> G[Process Subtitles with LLM]
+    G --> H[Generate Structured Recipe]
+    H --> I[Display Recipe in Selected Language]
+    
+    I --> J{User Action?}
+    
+    J -->|Copy| K[Copy Recipe to Clipboard]
+    K --> M
+    
+    J -->|Save| L{Logged In?}
+    L -->|No| N[Prompt Login]
+    N --> O[Google OAuth]
+    O --> P[Save Recipe to User Profile]
+    L -->|Yes| P
+    P --> M
+    
+    J -->|Provide Feedback| Q[Show Feedback Form]
+    Q --> R[Submit Feedback]
+    R --> M[Continue Using App]
+    
+    J -->|View Saved| S{Logged In?}
+    S -->|No| N
+    S -->|Yes| T[Display Saved Recipes]
+    T --> U[Select Recipe]
+    U --> I
+    
+    M --> V[End or New Search]
+    V -->|New Search| C
+    V -->|End| End([End])
+    
+    style Start fill:#4CAF50,stroke:#4CAF50,color:#fff
+    style End fill:#F44336,stroke:#F44336,color:#fff
+    style D fill:#FFC107,stroke:#FFC107,color:#000
+    style L fill:#FFC107,stroke:#FFC107,color:#000
+    style S fill:#FFC107,stroke:#FFC107,color:#000
+    style J fill:#FFC107,stroke:#FFC107,color:#000
+    style G fill:#2196F3,stroke:#2196F3,color:#fff
+    style H fill:#2196F3,stroke:#2196F3,color:#fff
+    style I fill:#2196F3,stroke:#2196F3,color:#fff
 
 ## 🚀 Deployment Strategy
 

@@ -32,7 +32,7 @@ YumTube operates through a seamless integration of AI processing, data storage, 
 
 #### 🌐 Translation Layer
 - **Service**: Sarvam API
-- **Supported Languages**: Multiple Indian languages including Hindi, Tamil, Telugu, Kannada, Malayalam, Gujarati, Marathi, Bengali, Punjabi, Oriya,Assamese,etc
+- **Supported Languages**: Multiple Indian languages including Hindi, Tamil, Telugu, Kannada, Malayalam, Gujarati, Marathi, Bengali, Punjabi, Oriya, Assamese, etc
 
 ## ✨ Feature Suite
 
@@ -43,7 +43,7 @@ YumTube operates through a seamless integration of AI processing, data storage, 
   - Recipe title and description
   - Ingredients with measurements
   - Step-by-step cooking instructions
-  - Cooking time and serving information
+  - Flavour, texture profile and serving information
 
 ### 2. 🗣️ Multilingual Support
 - Delivers recipes in multiple Indian languages including Hindi, Tamil, Telugu, Kannada, Malayalam, Gujarati, Marathi, Bengali, Punjabi, Oriya, and Assamese
